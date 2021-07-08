@@ -9,8 +9,8 @@ export class Product {
   @Column("varchar", { name: "productName", length: 40, default: () => "space((1))" })
   productName: string;
 
-  @Column("int", { name: "customerID",  default: () => null })
-  customerId: number;
+  @Column("int", { name: "supplierID",  default: () => null })
+  supplierId: number;
 
   @Column("int", { name: "categoryID",  default: () => null })
   categoryId: number;

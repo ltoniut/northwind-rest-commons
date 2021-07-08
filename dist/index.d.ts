@@ -1,1 +1,1 @@
-export declare function commonsSucessfully(): string;
+export declare function commonsSuccessfully(): string;

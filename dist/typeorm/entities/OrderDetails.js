@@ -14,36 +14,36 @@ const typeorm_1 = require("typeorm");
 let OrderDetails = class OrderDetails {
 };
 __decorate([
-    typeorm_1.PrimaryGeneratedColumn({ type: "int", name: "id" }),
+    typeorm_1.PrimaryGeneratedColumn({ type: 'int', name: 'id' }),
     __metadata("design:type", Number)
 ], OrderDetails.prototype, "id", void 0);
 __decorate([
-    typeorm_1.Column("int", { name: "supplierID", default: () => null }),
+    typeorm_1.Column('int', { name: 'supplierID', default: () => null }),
     __metadata("design:type", Number)
 ], OrderDetails.prototype, "supplierId", void 0);
 __decorate([
-    typeorm_1.Column("int", { name: "categoryID", default: () => null }),
+    typeorm_1.Column('int', { name: 'categoryID', default: () => null }),
     __metadata("design:type", Number)
 ], OrderDetails.prototype, "categoryId", void 0);
 __decorate([
-    typeorm_1.Column("int", { name: "quantityPerUnit" }),
+    typeorm_1.Column('int', { name: 'quantityPerUnit' }),
     __metadata("design:type", Number)
 ], OrderDetails.prototype, "quantityPerUnit", void 0);
 __decorate([
-    typeorm_1.Column("int", { name: "unitPrice" }),
+    typeorm_1.Column('int', { name: 'unitPrice' }),
     __metadata("design:type", Number)
 ], OrderDetails.prototype, "unitPrice", void 0);
 __decorate([
-    typeorm_1.Column("int", { name: "quantity", default: 0 }),
+    typeorm_1.Column('int', { name: 'quantity', default: 0 }),
     __metadata("design:type", Number)
 ], OrderDetails.prototype, "quantity", void 0);
 __decorate([
-    typeorm_1.Column("decimal", { name: "discount", default: 0 }),
+    typeorm_1.Column('decimal', { name: 'discount', default: 0 }),
     __metadata("design:type", Number)
 ], OrderDetails.prototype, "discount", void 0);
 OrderDetails = __decorate([
-    typeorm_1.Index("id", ["id"], { unique: true }),
-    typeorm_1.Entity("order details", { schema: "dbo" })
+    typeorm_1.Index('id', ['id'], { unique: true }),
+    typeorm_1.Entity('orderDetails', { schema: 'dbo' })
 ], OrderDetails);
 exports.OrderDetails = OrderDetails;
 //# sourceMappingURL=OrderDetails.js.map

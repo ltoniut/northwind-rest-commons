@@ -1,9 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.commonsSucessfully = void 0;
+exports.commonsSuccessfully = void 0;
 // TODO: function used for testing import
-function commonsSucessfully() {
+function commonsSuccessfully() {
     return 'Imported northwind-rest-commons sucessfully';
 }
-exports.commonsSucessfully = commonsSucessfully;
+exports.commonsSuccessfully = commonsSuccessfully;
 //# sourceMappingURL=index.js.map

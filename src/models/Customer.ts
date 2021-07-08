@@ -1,5 +1,3 @@
-
-
 export class Customer {
   id: number;
   internalId: string;

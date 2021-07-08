@@ -17,9 +17,9 @@ exports.default = model_builder_1.ModelBuilder.create('Product', {
     length: 40,
     nullable: true,
 })
-    .column('customerId', 'number', {
+    .column('supplierId', 'number', {
     type: 'int',
-    name: 'customerID',
+    name: 'supplierID',
     nullable: true,
 })
     .column('categoryId', 'number', {

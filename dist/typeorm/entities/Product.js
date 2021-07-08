@@ -22,9 +22,9 @@ __decorate([
     __metadata("design:type", String)
 ], Product.prototype, "productName", void 0);
 __decorate([
-    typeorm_1.Column("int", { name: "customerID", default: () => null }),
+    typeorm_1.Column("int", { name: "supplierID", default: () => null }),
     __metadata("design:type", Number)
-], Product.prototype, "customerId", void 0);
+], Product.prototype, "supplierId", void 0);
 __decorate([
     typeorm_1.Column("int", { name: "categoryID", default: () => null }),
     __metadata("design:type", Number)

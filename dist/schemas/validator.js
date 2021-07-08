@@ -9,10 +9,8 @@ class Val {
         const res = { valid: true, errors: {} };
         Object.entries(this.model).forEach(([key, val]) => {
             if (key !== 'id') {
-                console.log(key);
                 const msg = val({ model, name: key, value: model[key] });
                 if (msg) {
-                    console.log(msg);
                     res.errors[key] = msg;
                     res.valid = false;
                 }

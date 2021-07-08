@@ -1,7 +1,7 @@
 export declare class Product {
     id: number;
     productName: string;
-    customerId: number;
+    supplierId: number;
     categoryId: number;
     quantityPerUnit: string;
     unitPrice: number;
