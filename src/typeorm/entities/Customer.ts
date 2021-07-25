@@ -24,9 +24,6 @@ export class Customer {
   @Column("varchar", { name: "city", length: 15, default: () => null })
   city: string;
 
-  @Column("varchar", { name: "region", length: 15, default: () => null })
-  region: string;
-
   @Column("varchar", { name: "country", length: 15, default: () => null })
   country: string;
 

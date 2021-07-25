@@ -8,7 +8,7 @@ export function mockContext(overrides: Record<string, any> = {}): Context {
     fname: 'EILEEN ROSE',
     fmenu: 'MMENU',
     flevel: 5,
-    email: 'levvel-test-user@lineagelogistics.com',
+    email: 'ltoniut@gmail.com',
     ...overrides,
   });
 }

@@ -50,6 +50,13 @@ class BaseServiceImpl {
     }
     async create(ctx, fields, body) {
         return this.repository.transaction(ctx, async () => {
+            try {
+                await this.extendCreatePrepare(ctx, body);
+            }
+            catch (error) {
+                console.log(error);
+                throw new common_1.BadRequestException(error);
+            }
             const src = await this.extendCreatePrepare(ctx, body);
             const entity = await this.repository.save(ctx, src);
             await this.extendCreatePostSave(ctx, entity);

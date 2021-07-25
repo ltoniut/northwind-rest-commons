@@ -42,10 +42,6 @@ __decorate([
     __metadata("design:type", String)
 ], Customer.prototype, "city", void 0);
 __decorate([
-    typeorm_1.Column("varchar", { name: "region", length: 15, default: () => null }),
-    __metadata("design:type", String)
-], Customer.prototype, "region", void 0);
-__decorate([
     typeorm_1.Column("varchar", { name: "country", length: 15, default: () => null }),
     __metadata("design:type", String)
 ], Customer.prototype, "country", void 0);

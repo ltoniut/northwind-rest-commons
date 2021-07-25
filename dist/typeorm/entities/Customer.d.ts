@@ -6,7 +6,6 @@ export declare class Customer {
     contactTitle: string;
     address: string;
     city: string;
-    region: string;
     country: string;
     phone: string;
     fax: string;
