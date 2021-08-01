@@ -80,6 +80,12 @@ export class BaseServiceImpl<TModel, TRepository extends BaseRepository<TModel>>
     body: BaseDTO,
   ): Promise<ResponseDTO<BaseDTO>> {
     return this.repository.transaction(ctx, async () => {
+      try {
+        await this.extendCreatePrepare(ctx, body);
+      }
+      catch (error) {
+        throw new BadRequestException(error);
+      }
       const src = await this.extendCreatePrepare(ctx, body);
       const entity = await this.repository.save(ctx, src);
       await this.extendCreatePostSave(ctx, entity);

@@ -1,74 +1,113 @@
-# Northwind Rest Commons
+# Rest Commons
 
-Northwind Rest Commons le provee al desarrollador una serie de objetos que sirven como la capa de transporte entre el Frontend, los servicios y la base de datos.
+Rest Commons es un repositorio diseñado para proveer controladores y servicios REST genéricos que pueden ser importados desde un proyecto para facilitar radicalmente la creación de endpoints funcionales usando un modelo de múltiples repositorios.
 
+Éste proyecto fue diseñado para ser utilizado en conjunto con generic-rest-template para crear nuevos sistemas completamente funcionales desde 0.
 
-## Instalación
+// LINK A generic-rest-template
 
-Luego de clonar el repositorios se deben instalar todas las dependencias.
+## Requerimientos
 
-En la terminal, dirígase a la carpeta base del proyecto, y ejecute el comando "npm install" o, si se tiene yarn instalado, "yarn install".
+NodeJS - LINK
+Node Package Manager - LINK
+Typescript 2.0 - LINK
+@nestjs/cli - LINK
+GIT - Link
+Una base de datos SQL (MySQL, MsSql o Postgres) cuyas tablas utilizan una columna "id" como clave primaria.
 
-Luego la librería estará lista para ser importada por un proyecto autogenerado.
+# Cómo usar
 
+A continuación se detallan instrucciones para utilizar a rest-commons en conjunto con generic-rest-template para la creación de nuevos proyectos completamente funcionales.
 
-## Uso
+## Clonar proyectos
 
-Luego de ser instalada y agregada como paquete, Northwind puede ser importada desde cualquier archivo de la siguiente forma:
+El primer paso es, en una nueva carpeta, clonar ambos proyectos.
 
-```
-import { commonsSuccessfully } from 'northwind-rest-commons';
-```
+git clone {commons}
+git clone {template}
 
-De ésa forma se importa la función de ejemplo commonsSuccessfully(), que símplemente regresa un string con un mensaje de éxito.
+Si se quisiera cambiar el nombre de la carpeta del proyecto commons, se deberá ir a los archivos 
 
-## Acceso a datos
+@dir/package.json
+@dir/src/schematics/rest-service/files/ts/package.json
 
-### Conexión
+y cambiar la línea
 
-1. Para poder acceder a la base de datos, se deben especificar las variables de acceso.
+"rest-commons": "../rest-commons",
 
-2. Llenar el archivo .env con los siguientes campos, como sea apropiado. Por ejemplo:
+para reflejar la ubicación actual.
 
-```
-  RDS_TYPE=mysql
-  RDS_HOSTNAME=c-61-123-45-67.hsd1.co.comcast.net
-  RDS_PORT=1433
-  RDS_USERNAME=<username>
-  RDS_PASSWORD=<password>
-  RDS_DB_NAME=info
-  APP_ENV=
-  DIR_DATA=./src/typeorm
-```
+## Instalación y configuración
 
-## Adaptación a sistemas diferentes
+Dentro del directorio del proyecto rest-commons, abrir una consola y ejecutar el comando
 
-Si se quisiera adaptar éste proyecto para que funcione con otros sistemas/bases de datos, el primer paso es eliminar todos los elementos en las carpetas "src/models" y "src/typeorm/entities", y reemplazarlas por las que sean correctas para el nuevo sistema.
+- npm install
 
-### Entidades
+Luego, en la carpeta .env, colocar los parámetros de una base de datos existente del proyecto en lugar de las variables placeholder (Usuario, password, host, etc)
 
-Las entidades se generan mediante un script JS en "./src/typeorm-model-generator/generate-entities.ts".
+Ejecutar los tres comandos siguientes en la consola en orden
 
-Para correc el script, sólo es necesario ejecutar el siguiente comando CLI:
+- npm run generate:entities
 
-```
-$ npm run generate:entities
-```
+Para correr un script de typeORM y crear las entidades a partir de la base de datos
 
-Ve el resultado revisando el directorio "./src/typeorm/entities".
+- npm run generate:models
 
-### Clases puras
+Para traducir las entidades typeORM y crear modelos usables por los servicios del sistema
 
-A partir de las entidades, se pueden crear a mano clases puras, que son idénticas a las anteriores, pero sin los decoradores.
+- npm run generate:index
 
-### Procedimientos almacenados
+Para hacer cleanup de algunos de los elementos generados, y para crear un módulo de los modelos
 
-Se pueden generar automáticamente procedimentos almacenados mediante un script JS en "./src/typeorm-model-generator/generate-stored-procedures.ts".
+Luego de hacerlo, se habrán creado dos archivos en el directorio base del proyecto; .module-variables y entities.json, que serán usados luego en la configuración. Nuevamente, correr el comando
 
-Para correc el script, sólo es necesario ejecutar el siguiente comando CLI:
+-npm install
 
-```
-$ npm run generate:stored-procedures
-```
+En el proyecto generic-rest-template, en el archivo @dir/src/app.module.ts hay dos zonas comentadas. En una se encuentra una lista de entidades importadas, y en la otra se incluyen dichas entidades al módulo. Cambiar los contenidos de las áreas comentadas por los contenidos del archivo .module-variables.
 
-Ve el resultado revisando el directorio "./src/typeorm/stored-procedures".
+Si se quisiera usar el sistema para crear múltiples proyectos basados en la misma base de datos, una opción que puede ayudar es la de modificar el archivo @dir/src/schematics/defaults.ts para incluir los datos de la base de datos.
+
+En la carpeta del proyecto generic-rest-template, abrir una consola y ejecutar el comando
+
+-npm install
+
+## Creación de un nuevo proyecto
+
+En la carpeta que contiene ambos proyectos, ejecutar el comando
+
+- nest g -c ./generic-rest-template rest-service
+
+Se recibirá una serie de preguntas: Nombre del autor, nombre del proyecto a crear, versión, etc. Luego se creará un proyecto nuevo en una carpeta con el mismo nombre que se ha seleccionado dentro de la carpeta utilizada.
+
+Copiar el archivo entites.json que se ha creado en commons y pegarlo en la carpeta del nuevo proyecto. La misma contendrá una lista de objetos json vacíos, cada uno correspondiendo a las tablas de la base de datos. Si se quisieran ignorar entidades, ya sea para crear microservicios o para limitar el scope del proyecto, basta con eliminarlas del archivo.
+
+En la carpeta con el nuevo proyecto, ejecutar el comando
+
+- nest g -c ../generic-rest-template rest-resource
+
+Se dará la opción de crear entidades a partir de un archivo o de crear una entidad única por nombre. Seleccionar la opción de usar el archivo y escribir "entities.json." Al hacerlo, se crearán automáticamente nuevos módulos con controladores, servicios y repositorios que importan sus implementaciones del proyecto commons.
+
+Finalmente, ejecutar el comando
+
+- npm install
+
+Y el nuevo proyecto estará listo para correrse, con operaciones CRUD funcionales para cada una de las entidades.
+
+## Subir proyectos a la web
+
+De querer subir un proyecto autogenerado a la web, se debe recordar que no se puede utilizar la librería local, así que también se tendra que hacer deployment de commons y cambiar la referencia por defecto en package.json. 
+
+## Notas finales
+
+El objetivo de éste sistema no es reemplazar por completo la labor del programador, sino proveerle una herramienta que facilite la creación de sistemas informáticos. El proyecto generado no tendrá más que las funcionalidades básicas para el trabajo de creación, edición, lectura y remoción de datos, y no contempla los elementos de lógica que negocios que podrían ser únicos en un sistema informático específico.
+
+## Tecnologías utilizadas
+
+TypeScript
+NestJS
+Angular-devkit
+ExpressJs
+
+## Reconocimientos
+
+Matthew Elgin, Obed Corrales, Erick Keller, David Camacho y Nicolás Pogulanik, sin cuya investigación y conocimientos éste proyecto no sería posible.
