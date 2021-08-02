@@ -1,4 +1,4 @@
-export declare const projectTitle = "Northwind Rest Commons";
+export declare const projectTitle = "Rest Commons";
 export declare function camelize(value: string): string;
 export declare const sqlServerToJSTypes: {
     char: string;

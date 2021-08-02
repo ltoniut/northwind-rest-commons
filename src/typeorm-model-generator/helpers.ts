@@ -1,4 +1,4 @@
-export const projectTitle = 'Northwind Rest Commons';
+export const projectTitle = 'Rest Commons';
 
 export function camelize(value: string): string {
   return value.replace(

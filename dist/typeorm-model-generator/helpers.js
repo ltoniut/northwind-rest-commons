@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.camelizeCapitalized = exports.sqlServerToJSTypes = exports.camelize = exports.projectTitle = void 0;
-exports.projectTitle = 'Northwind Rest Commons';
+exports.projectTitle = 'Rest Commons';
 function camelize(value) {
     return value.replace(/^([A-Z])|[\s-_]+(\w)/g, (__match, prevPart, nextPart) => {
         return nextPart ? nextPart.toUpperCase() : prevPart.toLowerCase();

@@ -1,5 +1,4 @@
 # project makefile
-# <northwind>
 
 default: install
 
