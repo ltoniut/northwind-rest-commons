@@ -8,12 +8,12 @@ https://github.com/ltoniut/generic-rest-template
 
 ## Requerimientos
 
-NodeJS - https://nodejs.org/en/docs/
-Node Package Manager - https://docs.npmjs.com/
-Typescript 2.0 - https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-0.html
-@nestjs/cli - https://docs.nestjs.com/cli/overview
-GIT - https://git-scm.com/doc
-Una base de datos SQL (MySQL, MsSql o Postgres) cuyas tablas utilizan una columna "id" como clave primaria.
+- NodeJS - https://nodejs.org/en/docs/
+- Node Package Manager - https://docs.npmjs.com/
+- Typescript 2.0 - https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-0.html
+- @nestjs/cli - https://docs.nestjs.com/cli/overview
+- GIT - https://git-scm.com/doc
+- Una base de datos SQL (MySQL, MsSql o Postgres) cuyas tablas utilizan una columna "id" como clave primaria.
 
 # Cómo usar
 
