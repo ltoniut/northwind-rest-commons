@@ -104,7 +104,7 @@ const newModels = async (): Promise<void> => {
       const newFile = fs.createWriteStream(newFilePath);
       newFile.on('error', function (err) { });
       newFileLines.forEach(function (v) {
-        newFile.write(v); 
+        newFile.write(v + '\n'); 
       });
       const modelBuilderFile = fs.createWriteStream(modelBuilderFilePath);
 
