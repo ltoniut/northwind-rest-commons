@@ -67,8 +67,8 @@ Para hacer cleanup de algunos de los elementos generados, y para crear un módul
 
 Luego de hacerlo, se habrán creado dos archivos en el directorio base del proyecto; .module-variables y entities.json, que serán usados luego en la configuración. Nuevamente, correr el comando
 
--npm install
--npm run build
+- npm install
+- npm run build
 
 En el proyecto generic-rest-template, en el archivo @dir/src/app.module.ts hay dos zonas comentadas. En una se encuentra una lista de entidades importadas, y en la otra se incluyen dichas entidades al módulo. Cambiar los contenidos de las áreas comentadas por los contenidos del archivo .module-variables.
 
@@ -76,7 +76,7 @@ Si se quisiera usar el sistema para crear múltiples proyectos basados en la mis
 
 En la carpeta del proyecto generic-rest-template, abrir una consola y ejecutar el comando
 
--npm install
+- npm install
 
 ## Creación de un nuevo proyecto
 
