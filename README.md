@@ -4,15 +4,15 @@ Rest Commons es un repositorio diseñado para proveer controladores y servicios 
 
 Éste proyecto fue diseñado para ser utilizado en conjunto con generic-rest-template para crear nuevos sistemas completamente funcionales desde 0.
 
-// LINK A generic-rest-template
+https://github.com/ltoniut/generic-rest-template
 
 ## Requerimientos
 
-NodeJS - LINK
-Node Package Manager - LINK
-Typescript 2.0 - LINK
-@nestjs/cli - LINK
-GIT - Link
+NodeJS - https://nodejs.org/en/docs/
+Node Package Manager - https://docs.npmjs.com/
+Typescript 2.0 - https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-0.html
+@nestjs/cli - https://docs.nestjs.com/cli/overview
+GIT - https://git-scm.com/doc
 Una base de datos SQL (MySQL, MsSql o Postgres) cuyas tablas utilizan una columna "id" como clave primaria.
 
 # Cómo usar
@@ -23,8 +23,14 @@ A continuación se detallan instrucciones para utilizar a rest-commons en conjun
 
 El primer paso es, en una nueva carpeta, clonar ambos proyectos.
 
-git clone {commons}
-git clone {template}
+- git clone https://github.com/ltoniut/rest-commons
+- git clone https://github.com/ltoniut/generic-rest-template
+
+Ir al directorio de rest-commons y remover el vínculo de git con la siguiente línea
+
+- git remote remove origin
+
+Ya que el proyecto de template es sólo usado para la creación de nuevos sistemas y no como un sistema en sí mismo, no existe tanta necesidad de hacer lo mismo con él.
 
 Si se quisiera cambiar el nombre de la carpeta del proyecto commons, se deberá ir a los archivos 
 
