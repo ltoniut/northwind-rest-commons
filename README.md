@@ -35,6 +35,7 @@ Ya que el proyecto de template es sólo usado para la creación de nuevos sistem
 Si se quisiera cambiar el nombre de la carpeta del proyecto commons, se deberá ir a los archivos 
 
 @dir/package.json
+
 @dir/src/schematics/rest-service/files/ts/package.json
 
 y cambiar la línea
