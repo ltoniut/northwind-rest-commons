@@ -1,5 +1,5 @@
 {
-  "name": "rest-commons",
+  "name": "northwind-rest-commons",
   "version": "1.0.0",
   "description": "Set of objects that works as the transport layer between Frontend, Services and Database",
   "main": "dist/index.js",
@@ -11,6 +11,8 @@
     "format": "prettier --ignore-path .gitignore --write \"(src|tests)/**/*.+(js|json|ts|tss|tsx)\"",
     "lint": "eslint --ignore-path .gitignore \"src/**/*.+(js|ts)\"",
     "generate:entities": "ts-node -r tsconfig-paths/register src/typeorm-model-generator/generate-entities.ts",
+    "generate:models": "ts-node -r tsconfig-paths/register src/typeorm-model-generator/generate-models.ts",
+    "generate:index": "ts-node -r tsconfig-paths/register src/typeorm-model-generator/generate-index.ts",
     "generate:stored-procedures": "ts-node -r tsconfig-paths/register src/typeorm-model-generator/generate-stored-procedures.ts",
     "generate:views": "ts-node -r tsconfig-paths/register src/typeorm-model-generator/generate-views.ts",
     "prepublish": "tsc",
