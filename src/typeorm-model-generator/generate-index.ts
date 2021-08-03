@@ -5,6 +5,7 @@ const generateIndex = async (): Promise<void> => {
   fs.readdir(path.join(__dirname, '/../typeorm/entities'), (err, files) => {
     fs.unlinkSync(path.join(__dirname, '/../schemas/model-builders/index.ts'));
     fs.unlinkSync(path.join(__dirname, '/../models/index.ts'));
+    fs.unlinkSync(path.join(__dirname, '/../models/.empty'));
 
     const modulesFile = fs.createWriteStream(path.join(__dirname, '/../../.module-variables'));
     const indexBuilderFile = fs.createWriteStream(path.join(__dirname, '/../schemas/model-builders/index.ts'));
