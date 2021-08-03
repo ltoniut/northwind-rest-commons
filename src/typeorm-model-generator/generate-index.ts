@@ -19,7 +19,11 @@ const generateIndex = async (): Promise<void> => {
     names.forEach((name) => {
       modulesFile.write(`import { ${name}Module } from './modules/${name.toLowerCase()}/module';\n`)
       indexBuilderFile.write(`import ${name} from './${name.toLowerCase()}';\n`);
-      entitiesFile.write(`    {\n      "name": "${ name }"\n    },\n`);
+      let newEntityLine = `    {\n      "name": "${ name }"\n    }`;
+      if(name !== names[names.length - 1]) {
+        newEntityLine += ',';
+      }
+      entitiesFile.write(`${ newEntityLine }\n`);
     });
 
     indexBuilderFile.write(`\nconst schemas: Model[] = [\n`);
