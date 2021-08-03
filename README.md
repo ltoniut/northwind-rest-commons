@@ -110,10 +110,10 @@ El objetivo de éste sistema no es reemplazar por completo la labor del programa
 
 ## Tecnologías utilizadas
 
-TypeScript
-NestJS
-Angular-devkit
-ExpressJs
+- TypeScript
+- NestJS
+- Angular-devkit
+- ExpressJs
 
 ## Reconocimientos
 
